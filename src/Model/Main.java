@@ -1,6 +1,7 @@
 package Model;
 
 import Database.DBConnection;
+import com.sun.javafx.runtime.VersionInfo;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -17,7 +18,6 @@ import view.MainView;
 import java.util.Locale;
 
 public class Main extends Application{
-
 
     public static void main(String[] args) {
         //Starting Database Connection
