@@ -20,7 +20,7 @@ public class LoginController {
     public static void writeToFile(String content){
         BufferedWriter out = null;
         try{
-            file = new FileWriter("../loginLog.txt", true);
+            file = new FileWriter("login_activity.txt", true);
             out = new BufferedWriter(file);
             out.write(content);
             out.close();
