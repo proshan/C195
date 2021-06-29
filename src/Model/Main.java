@@ -9,7 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import view.CustomersView;
 import view.LoginView;
+import view.MainView;
 
 import java.util.Locale;
 
@@ -25,6 +28,7 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         LoginView.displayLoginView();
     }
 
