@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Optional;
@@ -124,14 +125,13 @@ public class AppointmentMainView {
         });
 
         //button to generate reports based on location
-        ComboBox locationBox = new ComboBox();
+        ComboBox<String> locationBox = new ComboBox();
         locationBox.setPromptText("Report-By-Location");
         //populating the location combobox
-        Iterator<String> locationiterator = GetData.getLocation().iterator();
-        while(locationiterator.hasNext()){
-            locationBox.getItems().add(locationiterator.next());
-        }
+        ArrayList<String> locationList = GetData.getLocation();
+        locationList.forEach(location -> locationBox.getItems().add(location));
 
+        //Using LAMBDA expression to populate the Location ComboBox
         locationBox.setOnAction( event -> {
             appointmentTableView.setItems(GetData.getAppointmentsByLocation(locationBox.getSelectionModel().getSelectedItem().toString()));
         });
