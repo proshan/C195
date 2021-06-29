@@ -5,6 +5,7 @@ import Model.GetData;
 import com.mysql.cj.protocol.Resultset;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import view.AddAppointmentView;
 import view.AddCustomerView;
 import view.CustomersView;
 import view.UpdateCustomerView;
@@ -41,6 +42,8 @@ public class CustomerController{
             //adding customer to the database
             String name = AddCustomerView.nameField.getText();
             String address = AddCustomerView.addressField.getText();
+            String[] addressValues = address.split(",");
+            address = addressValues[0];
             String postal = AddCustomerView.postalCodeField.getText();
             String phone = AddCustomerView.phoneField.getText();
 
@@ -79,7 +82,9 @@ public class CustomerController{
                     alert.setHeaderText("Successfully created customer!");
                     alert.showAndWait();
                 }
-                CustomersView.customerTableView.refresh();
+                AddCustomerView.window.close();
+                CustomersView.getCustomerTableView().setItems(GetData.getCustomers());
+                CustomersView.displayCustomersView();
             } catch (Exception e){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Unsuccessful customer creation!");
@@ -105,6 +110,8 @@ public class CustomerController{
             //adding customer to the database
             String name = UpdateCustomerView.nameField.getText();
             String address = UpdateCustomerView.addressField.getText();
+            String[] addressValues = address.split(",");
+            address = addressValues[0];
             String postal = UpdateCustomerView.postalCodeField.getText();
             String phone = UpdateCustomerView.phoneField.getText();
 
@@ -142,7 +149,9 @@ public class CustomerController{
                     alert.setHeaderText("Successfully updated customer!");
                     alert.showAndWait();
                 }
-                CustomersView.customerTableView.refresh();
+                UpdateCustomerView.window.close();
+                CustomersView.getCustomerTableView().setItems(GetData.getCustomers());
+                CustomersView.window.show();
             } catch (Exception e){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Unsuccessful!");

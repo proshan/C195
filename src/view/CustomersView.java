@@ -20,11 +20,12 @@ import java.util.Optional;
 
 public class CustomersView {
 
-    public static Stage window = new Stage();
+    public static Stage window;
 
     public static TableView<Customer> customerTableView = getCustomerTableView();
 
     public static void displayCustomersView(){
+        window = new Stage();
         window.setTitle("Customers View");
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -43,6 +44,7 @@ public class CustomersView {
         Button updateCustomerButton = new Button("Update Customer");
         updateCustomerButton.setOnAction(event -> {
             if(customerTableView.getSelectionModel().getSelectedItem() != null){
+                window.hide();
                 UpdateCustomerView.displayUpdateCustomerForm(customerTableView.getSelectionModel().getSelectedItem());
             }
         });

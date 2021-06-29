@@ -20,6 +20,8 @@ import java.util.Iterator;
 
 public class UpdateCustomerView {
 
+    public static Stage window;
+
     public static Label idLabel;
     public static TextField idField;
 
@@ -43,9 +45,15 @@ public class UpdateCustomerView {
 
     public static Button updateCustomerButton;
 
+    /**
+     *Displays the form to update the customer
+     *with pre-populated date from selected customer
+     *
+     * @param customer  a customer from Model 'Customer'
+     */
     public static void displayUpdateCustomerForm(Customer customer){
-        Stage window = new Stage();
-        window.setTitle("Add Customer Form");
+        window = new Stage();
+        window.setTitle("Update Customer Form");
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -131,7 +139,6 @@ public class UpdateCustomerView {
         updateCustomerButton.setOnAction(event -> {
             CustomerController.errorMessages = "";
             CustomerController.updateCustomer(customer.getCustomerId());
-            CustomersView.customerTableView.refresh();
         });
         GridPane.setConstraints(updateCustomerButton, 0, 7);
 
@@ -143,10 +150,8 @@ public class UpdateCustomerView {
         window.setScene(scene);
         window.show();
 
-        window.setOnCloseRequest(event -> {
-            CustomersView.window.show();
-            CustomersView.customerTableView.setItems(GetData.getCustomers());
-            CustomersView.customerTableView.refresh();
+        window.setOnCloseRequest( event -> {
+            CustomersView.displayCustomersView();
         });
     }
 }

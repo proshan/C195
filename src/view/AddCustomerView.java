@@ -109,7 +109,6 @@ public class AddCustomerView {
         createCustomerButton.setOnAction(event -> {
             CustomerController.errorMessages = "";
             CustomerController.addCustomer();
-            CustomersView.customerTableView.refresh();
         });
         GridPane.setConstraints(createCustomerButton, 0, 6);
 
@@ -120,6 +119,11 @@ public class AddCustomerView {
 
         window.setScene(scene);
         window.show();
+
+
+        window.setOnCloseRequest(event -> {
+            CustomersView.displayCustomersView();
+        });
     }
 
 }

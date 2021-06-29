@@ -27,7 +27,7 @@ import java.util.TimeZone;
 
 public class UpdateAppointmentView {
 
-    public static Stage window = new Stage();
+    public static Stage window;
 
     public static Label idLabel;
     public static TextField idField;
