@@ -3,8 +3,7 @@ APPOINTMENT SCHEDULING APPLICATION
 The purpose of the application is to allow the user to create, delete, update, generate reports of different views, along with providing features to add update and delete customers for whom appointments are created for.
 
 Author: Roshan Parajuli
-Contact: rparaju@wgu.edu
-Phone: (469)-773-0434
+
 
 IntelliJ IDEA 2020.3 (Ultimate Edition)
 Build #IU-203.5981.155, built on November 30, 2020
